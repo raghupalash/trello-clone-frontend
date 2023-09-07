@@ -34,6 +34,11 @@ const mockData = {
     ],
     stages: [
       {
+        id: 0,
+        name: "Resources",
+        boardId: 1,
+      },
+      {
         id: 1,
         name: "To Do",
         boardId: 1,

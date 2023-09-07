@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.task {
+  background-color: rgb(121, 124, 124);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

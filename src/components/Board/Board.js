@@ -15,11 +15,13 @@ export default function Board() {
 
     // Render the board and its content using the fetched data
     return (
-        <div className="board">
+        <div className="board container-fluid">
             <h2>{currentBoard.name}</h2>
-            <div className="stage-list">
+            <div className="stage-list row">
                 {stages.map((stage) => (
-                    <div>{stage.id} {stage.name}</div>
+                    <div className="col">
+                        <Stage stage={stage}/>
+                    </div>
                 ))}
             </div>
         </div>
