@@ -32,6 +32,12 @@
   background-color: rgb(121, 124, 124);
 }
 
+.stage {
+  border: 1px solid #ccc; /* Add a border to visualize the stage */
+  padding: 10px; /* Add some padding for spacing */
+  min-height: 100px; /* Set a minimum height for the stage container */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
