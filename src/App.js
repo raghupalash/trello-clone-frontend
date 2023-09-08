@@ -1,6 +1,5 @@
 import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DndProvider } from 'react-dnd'
-import logo from './logo.svg';
 import './App.css';
 import Board from './components/Board/Board'
 import { getBoardsByUser } from './data/mockData';
