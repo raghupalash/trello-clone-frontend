@@ -28,21 +28,6 @@
   color: #61dafb;
 }
 
-.task {
-  background-color: rgb(121, 124, 124);
-  padding: 10px;
-  margin: 10px;
-  border: "1px dotted #ccc";
-}
-
-
-.stage {
-  border: 1px solid #ccc; /* Add a border to visualize the stage */
-  padding: 20px; /* Add some padding for spacing */
-  margin: 10px;
-  min-height: 100px; /* Set a minimum height for the stage container */
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

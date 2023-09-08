@@ -1,0 +1,6 @@
+.task {
+    background-color: rgb(121, 124, 124);
+    padding: 10px;
+    margin: 10px;
+    border: "1px dotted #ccc";
+}

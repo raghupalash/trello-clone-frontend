@@ -1,11 +1,12 @@
 // DraggableTask.js
 import React from 'react';
 import { useDrag } from 'react-dnd';
+import "./Task.css"
 
-export default function Task({ task, task_index, stage_id, onHover }) {
+export default function Task({ task, taskIndex, stageId, onHover }) {
   const [, ref] = useDrag({
     type: 'TASK',
-    item: { id: task.id, task_index, stage_id },
+    item: { id: task.id, taskIndex, stageId },
   });
 
   return (

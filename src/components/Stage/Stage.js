@@ -1,7 +1,7 @@
 import { useDrop } from "react-dnd";
 import { useState } from "react";
-import { getTasksByStage } from "../../data/mockData";
-import Task from "./Task";
+import Task from "../Task/Task";
+import "./Stage.css";
 
 export default function Stage({ stage, tasks, onDropTask }) {
     const [hoveredTaskIndex, setHoveredTaskIndex] = useState(null);
@@ -10,8 +10,8 @@ export default function Stage({ stage, tasks, onDropTask }) {
         accept: 'TASK',
         drop: (draggedItem) => onDropTask(
             draggedItem.id, 
-            draggedItem.task_index, 
-            draggedItem.stage_id, 
+            draggedItem.taskIndex, 
+            draggedItem.stageId, 
             stage.id, 
             hoveredTaskIndex,
         ),
@@ -19,13 +19,14 @@ export default function Stage({ stage, tasks, onDropTask }) {
 
     return (
         <div ref={ref} className="stage">
-            <div className="stagename">{stage.name}</div>
+            <strong>{stage.name}</strong>
+            <hr></hr>
             {tasks.map((task, index) => (
                 <Task 
                     key={task.id} 
                     task={task} 
-                    task_index={index} 
-                    stage_id={stage.id}
+                    taskIndex={index} 
+                    stageId={stage.id}
                     onHover={() => setHoveredTaskIndex(index)} 
                 />
             ))}
