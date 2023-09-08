@@ -4,21 +4,23 @@ import Stage from "./Stage";
 
 export default function Board({ board }) {
     // Render the board and its content using the fetched data
-    const [tasks, setTasks] = useState(board.tasks);
+    console.log(board.stages);
+    const [stages, setStages] = useState(board.stages);
 
-    const handleDropTask = (taskId, destinationStageId) => {
-        // Find the task that was dragged
-        const draggedTask = tasks.find((task) => task.id === taskId);
+    const handleDropTask = (taskId, task_index, sourceStageId, destinationStageId) => {
+        // Find the source and destination stage
+        const sourceStage = stages.find((stage) => stage.id === sourceStageId);
+        const destinationStage = stages.find((stage) => stage.id === destinationStageId)
+        
+        // Remove the task from source stage
+        const task = sourceStage.tasks.splice(task_index, 1)[0];
+
+        // Append the task to destination stage
+        destinationStage.tasks.push(task);
+
+        const updatedStages = [...stages]
     
-        // Update the stage ID of the dragged task
-        draggedTask.stageId = destinationStageId;
-    
-        // Update the tasks in the state to reflect the new order
-        const updatedTasks = tasks.map((task) =>
-          task.id === taskId ? draggedTask : task
-        );
-    
-        setTasks(updatedTasks);
+        setStages(updatedStages);
     };
 
     return (
@@ -30,7 +32,7 @@ export default function Board({ board }) {
                         <Stage 
                             key={stage.id} 
                             stage={stage}
-                            tasks={tasks.filter((task) => task.stageId === stage.id)}
+                            tasks={stage.tasks}
                             onDropTask={handleDropTask}
                         />
                     </div>

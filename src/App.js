@@ -8,6 +8,7 @@ import { getBoardsByUser } from './data/mockData';
 function App() {
   const current_user_id = 1;
   const current_board = getBoardsByUser(current_user_id)[0]
+  
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
