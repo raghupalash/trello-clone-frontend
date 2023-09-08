@@ -30,11 +30,16 @@
 
 .task {
   background-color: rgb(121, 124, 124);
+  padding: 10px;
+  margin: 10px;
+  border: "1px dotted #ccc";
 }
+
 
 .stage {
   border: 1px solid #ccc; /* Add a border to visualize the stage */
-  padding: 10px; /* Add some padding for spacing */
+  padding: 20px; /* Add some padding for spacing */
+  margin: 10px;
   min-height: 100px; /* Set a minimum height for the stage container */
 }
 

@@ -1,21 +1,33 @@
 import { useDrop } from "react-dnd";
+import { useState } from "react";
 import { getTasksByStage } from "../../data/mockData";
 import Task from "./Task";
 
 export default function Stage({ stage, tasks, onDropTask }) {
-    // Here we design a single "stage" containing the stagename and the list of tasks
+    const [hoveredTaskIndex, setHoveredTaskIndex] = useState(null);
+
     const [, ref] = useDrop({
         accept: 'TASK',
         drop: (draggedItem) => onDropTask(
-            draggedItem.id, draggedItem.task_index, draggedItem.stage_id, stage.id
+            draggedItem.id, 
+            draggedItem.task_index, 
+            draggedItem.stage_id, 
+            stage.id, 
+            hoveredTaskIndex,
         ),
       });
 
     return (
         <div ref={ref} className="stage">
-            <strong>{stage.name}</strong>
+            <div className="stagename">{stage.name}</div>
             {tasks.map((task, index) => (
-                <Task key={task.id} task={task} task_index={index} stage_id={stage.id} />
+                <Task 
+                    key={task.id} 
+                    task={task} 
+                    task_index={index} 
+                    stage_id={stage.id}
+                    onHover={() => setHoveredTaskIndex(index)} 
+                />
             ))}
         </div>
     )
