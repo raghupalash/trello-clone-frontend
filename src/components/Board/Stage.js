@@ -1,9 +1,6 @@
 import { getTasksByStage } from "../../data/mockData"
 
-export default function Stage({stage}) {
-    // Simulate fetching the list of tasks for the current stage
-    const tasks = getTasksByStage(stage.id);
-
+export default function Stage({ stage, tasks }) {
     // Here we design a single "stage" containing the stagename and the list of tasks
     return (
         <>
